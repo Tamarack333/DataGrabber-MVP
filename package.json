@@ -1,0 +1,16 @@
+{
+  "name": "datagrabber-mvp",
+  "version": "1.0.0",
+  "description": "This file is intended to be a cleaner simpler version of another data downloader I have created, and serve as material for practicing inside vim.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^23.10.4"
+  }
+}
