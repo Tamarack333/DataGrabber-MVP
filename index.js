@@ -16,8 +16,10 @@ for(const ticker of tickers){
 	// wait for .5 second
  	await new Promise(resolve => setTimeout(resolve, 5000))
 	// correct site? if not continue state
-	console.log(`should do logic`)
-	if(page.url()===`https://www.nasdaq.com/market-activity/stocks/${ticker}/historical?page=1&rows_per_page=10&timeline=y10`){
+	
+	console.log(`checking logic \n  ${page.url()} \n  ${(page.url() === `https://www.nasdaq.com/market-activity/stocks/${ticker}/historical?page=1&rows_per_page=10&timeline=y10`)}`)
+	
+	if(page.url() ===`https://www.nasdaq.com/market-activity/stocks/${ticker}/historical?page=1&rows_per_page=10&timeline=y10`){
 		console.log(`still on ${page.url()}`)
 	}else{
 		console.log(page.url() + ` changed`)
