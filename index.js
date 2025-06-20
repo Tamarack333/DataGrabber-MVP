@@ -10,26 +10,20 @@ const browserInstance = await puppeteer.launch({
 const page = await browserInstance.newPage()
 // loop through sites
 for(const ticker of tickers){
-	console.log(` searching for ${ticker}`)
 	// go to site
 	page.goto(`https://www.nasdaq.com/market-activity/stocks/${ticker}/historical?page=1&rows_per_page=10&timeline=y10`)
+	
 	// wait for .5 second
  	await new Promise(resolve => setTimeout(resolve, 5000))
-	// correct site? if not continue state
 	
-	console.log(`checking logic \n  ${page.url()} \n  ${(page.url() === `https://www.nasdaq.com/market-activity/stocks/${ticker}/historical?page=1&rows_per_page=10&timeline=y10`)}`)
-	
-	if(page.url() ===`https://www.nasdaq.com/market-activity/stocks/${ticker}/historical?page=1&rows_per_page=10&timeline=y10`){
+	if(`${page.url()}` === `https://www.nasdaq.com/market-activity/stocks/${ticker.toLowerCase()}/historical?page=1&rows_per_page=10&timeline=y10`){
 		console.log(`still on ${page.url()}`)
+		// download data with beneficial name and format	
+
 	}else{
-		console.log(page.url() + ` changed`)
+		console.log(`changed`)
+		// append ticker to file of all missed stocks. name file with date and time. 
 	}
-	// wait 3.5 sec
-	await new Promise(resolve => setTimeout(resolve, 3500))
-	// Process site
-	console.log(`should process site`)
-	// rename file and move to proper location
-	
 	}
 browserInstance.close()
 
